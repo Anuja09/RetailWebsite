@@ -42,8 +42,4 @@ public class Transaction {
 	public void setListOfItemsBought(Map<Long, Integer> listOfItemsBought) {
 		this.listOfItemsBought = listOfItemsBought;
 	}
-	public double getBill() {
-		return Bill.calculate(customerDetails, listOfItemsBought);
-		
-	}
 }

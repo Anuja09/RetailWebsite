@@ -1,10 +1,10 @@
-package com.retail.discount;
+package com.retail.factory;
 
-import com.retail.bill.BillCalculator;
-import com.retail.bill.BillCalculatorForAffiliates;
-import com.retail.bill.BillCalculatorForCommon;
-import com.retail.bill.BillCalculatorForCustomersOverTwoYears;
-import com.retail.bill.BillCalculatorForEmployees;
+import com.retail.bill.process.BillCalculator;
+import com.retail.bill.process.impl.BillCalculatorForAffiliates;
+import com.retail.bill.process.impl.BillCalculatorForCommon;
+import com.retail.bill.process.impl.BillCalculatorForCustomersOverTwoYears;
+import com.retail.bill.process.impl.BillCalculatorForEmployees;
 import com.retail.dto.CustomerType;
 
 public class DiscountCalculatorFactory {

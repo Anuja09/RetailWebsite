@@ -7,10 +7,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.retail.bill.counter.BillCounter;
 import com.retail.dto.Customer;
 import com.retail.dto.CustomerType;
-import com.retail.dto.ProductsFactory;
 import com.retail.dto.Transaction;
+import com.retail.factory.ProductsFactory;
 
 import junit.framework.TestCase;
 
@@ -29,14 +30,13 @@ public class TestNetAmountPaybleToCustomer extends TestCase {
 		transaction.setCustomerDetails(customer);
 		transaction.setStoreName("DMart");
 		transaction.setStoreAddress("JM Road, Pune");
-		Map<Long, Integer> listOfItemsBought = new HashMap<>();
+		Map<Long, Integer> listOfItemsBought = new HashMap<>();//map of product no and quantity
 		listOfItemsBought.put(1001L, 1);
 		listOfItemsBought.put(2002L, 1);
-		listOfItemsBought.put(3001L, 1);
-		listOfItemsBought.put(3002L, 1);
+		listOfItemsBought.put(3001L, 3);
+		listOfItemsBought.put(3002L, 2);
 		transaction.setListOfItemsBought(listOfItemsBought);
-		
-		assertEquals(1105.0, transaction.getBill());
+		assertEquals(2270.0, BillCounter.getNetPayableAmount(transaction));
 	}
 	
 	@Test
@@ -55,7 +55,7 @@ public class TestNetAmountPaybleToCustomer extends TestCase {
 		listOfItemsBought.put(3002L, 1);
 		transaction.setListOfItemsBought(listOfItemsBought);
 		
-		assertEquals(1350.0, transaction.getBill());
+		assertEquals(1350.0, BillCounter.getNetPayableAmount(transaction));
 	}
 	
 	@Test
@@ -74,7 +74,7 @@ public class TestNetAmountPaybleToCustomer extends TestCase {
 		listOfItemsBought.put(3002L, 1);
 		transaction.setListOfItemsBought(listOfItemsBought);
 		
-		assertEquals(1415.0, transaction.getBill());
+		assertEquals(1415.0, BillCounter.getNetPayableAmount(transaction));
 	}
 	
 	@Test
@@ -86,14 +86,14 @@ public class TestNetAmountPaybleToCustomer extends TestCase {
 		transaction.setCustomerDetails(customer);
 		transaction.setStoreName("DMart");
 		transaction.setStoreAddress("JM Road, Pune");
-		Map<Long, Integer> listOfItemsBought = new HashMap<>();
+		Map<Long, Integer> listOfItemsBought = new HashMap<>();//map of product no and quantity
 		listOfItemsBought.put(1001L, 1);
 		listOfItemsBought.put(2002L, 1);
 		listOfItemsBought.put(3001L, 1);
 		listOfItemsBought.put(3002L, 1);
 		transaction.setListOfItemsBought(listOfItemsBought);
 		
-		assertEquals(1475.0, transaction.getBill());
+		assertEquals(1475.0, BillCounter.getNetPayableAmount(transaction));
 	}
 	
 	@After
