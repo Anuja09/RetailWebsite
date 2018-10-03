@@ -6,16 +6,5 @@ On	a	retail	website,	the	following	discounts	apply:
 as	a	discount).
 5. The	percentage	based	discounts	do	not	apply	on	groceries.
 6. A	user	can	get	only	one	of	the	percentage	based	discounts	on	a	bill.
-
 Write	a	program	in	a	programming	language	of	your	choice	with	test	cases	such	that	given	a	
-bill,	it	finds	the	net	payable	amount. Please	note	the	stress	is	on	object	oriented	approach	
-and	test	coverage.	User	interface	is	not	required.	What	we	care	about:
-• object	oriented	programming	approach,	provide	a	high	level	UML	class	diagram	of	all	
-the	key	classes	in	your	solution.	This	can	either	be	on	paper	or	using	a	CASE	tool
-• unit	test	and	code	coverage
-• code	to	be	generic	and	simple
-• leverage	today's	best	coding	practices
-• clear	README.md	that	explains	how	the	code	and	the	test	can	be	run	and	how	the	
-coverage	reports	can	be	generated
-Create	a	GitHub	repository,	ensure	the	name	is	generic	and	doesn’t	have	any	company	
-names.	Commit	your	code	to	the	GitHub	repository	and	share	the	link	with	us.
+bill,	it	finds	the	net	payable	amount. 
