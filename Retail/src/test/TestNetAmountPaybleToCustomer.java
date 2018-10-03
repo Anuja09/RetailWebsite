@@ -1,5 +1,8 @@
 package test;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,7 +26,7 @@ public class TestNetAmountPaybleToCustomer extends TestCase {
 	
 	@Test
 	public void testGenerateBillForEmployees() {
-		Customer customer = new Customer("Anuja",CustomerType.EMPLOYEE);
+		Customer customer = new Customer("Anuja",CustomerType.EMPLOYEE, new Date());
 		
 		Transaction transaction = new Transaction();
 		transaction.setBillNo("101");
@@ -41,7 +44,7 @@ public class TestNetAmountPaybleToCustomer extends TestCase {
 	
 	@Test
 	public void testGenerateBillForAffiliates() {
-		Customer customer = new Customer("Anuja",CustomerType.AFFILIATED);
+		Customer customer = new Customer("Anuja",CustomerType.AFFILIATED, new Date());
 		
 		Transaction transaction = new Transaction();
 		transaction.setBillNo("101");
@@ -60,7 +63,15 @@ public class TestNetAmountPaybleToCustomer extends TestCase {
 	
 	@Test
 	public void testGenerateBillForCustomerOverTwoYears() {
-		Customer customer = new Customer("Anuja",CustomerType.CUSTOMEROVERTWOYEARS);
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-mm-yyyy");
+		Date regitrationDate = null;
+		try {
+			 regitrationDate = sdf.parse("10-10-2014");
+		} catch (ParseException e) {
+			 regitrationDate = new Date();
+			e.printStackTrace();
+		}
+		Customer customer = new Customer("Anuja",CustomerType.COMMON, regitrationDate);
 		
 		Transaction transaction = new Transaction();
 		transaction.setBillNo("101");
@@ -73,13 +84,13 @@ public class TestNetAmountPaybleToCustomer extends TestCase {
 		listOfItemsBought.put(3001L, 1);
 		listOfItemsBought.put(3002L, 1);
 		transaction.setListOfItemsBought(listOfItemsBought);
-		
+			
 		assertEquals(1415.0, BillCounter.getNetPayableAmount(transaction));
 	}
 	
 	@Test
 	public void testGenerateBillForCommonCustomers() {
-		Customer customer = new Customer("Anuja",CustomerType.COMMON);
+		Customer customer = new Customer("Anuja",CustomerType.COMMON, new Date());
 		
 		Transaction transaction = new Transaction();
 		transaction.setBillNo("101");

@@ -1,14 +1,16 @@
 package com.retail.dto;
 
+import java.util.Date;
+
 public class Customer {
 	String customerName;
 	CustomerType customerType;
-	String customerMobileNo;
-	public Customer(String customerName, CustomerType customerType) {
+	Date dateOfRegistration;
+	public Customer(String customerName, CustomerType customerType, Date dateOfRegistration) {
 		super();
 		this.customerName = customerName;
 		this.customerType = customerType;
-		this.customerMobileNo = "1234567891";
+		this.dateOfRegistration = dateOfRegistration;
 	}
 	public String getCustomerName() {
 		return customerName;
@@ -16,9 +18,17 @@ public class Customer {
 	public CustomerType getCustomerType() {
 		return customerType;
 	}
-	public String getCustomerMobileNo() {
-		return customerMobileNo;
+	public Date getDateOfRegistration() {
+		return dateOfRegistration;
 	}
-	
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+	public void setCustomerType(CustomerType customerType) {
+		this.customerType = customerType;
+	}
+	public void setDateOfRegistration(Date dateOfRegistration) {
+		this.dateOfRegistration = dateOfRegistration;
+	}
 	
 }
