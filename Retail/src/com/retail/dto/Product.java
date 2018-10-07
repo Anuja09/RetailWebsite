@@ -3,11 +3,11 @@ package com.retail.dto;
 public class Product {
 	long productNo;
 	String productName;
-	String productType;
+	ItemType productType;
 	double price;
 	
 	
-	public Product(long productNo, String productName, String productType, double price) {
+	public Product(long productNo, String productName, ItemType productType, double price) {
 		super();
 		this.productNo = productNo;
 		this.productName = productName;
@@ -26,10 +26,10 @@ public class Product {
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
-	public String getProductType() {
+	public ItemType getProductType() {
 		return productType;
 	}
-	public void setProductType(String productType) {
+	public void setProductType(ItemType productType) {
 		this.productType = productType;
 	}
 	public double getPrice() {

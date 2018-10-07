@@ -7,6 +7,13 @@ import com.retail.dto.ItemType;
 import com.retail.dto.Product;
 import com.retail.factory.ProductsFactory;
 
+/**
+ * Implementation of BillCalculator - If the user is an affiliate of the store, he
+ * gets a 10% discount
+ * 
+ * @author anuja.desale
+ *
+ */
 public class BillCalculatorForAffiliates implements BillCalculator{
 
 	@Override
@@ -25,7 +32,7 @@ public class BillCalculatorForAffiliates implements BillCalculator{
 		}
 		int amtForflatDiscount = (int) (totalAmount/100);
 		netPaybleAmt = totalAmount - (amtForflatDiscount * 5);
-		
+		System.out.println("Affiliate Calculated Net Payble Amount : " + netPaybleAmt);
 		return netPaybleAmt;
 	}
 	

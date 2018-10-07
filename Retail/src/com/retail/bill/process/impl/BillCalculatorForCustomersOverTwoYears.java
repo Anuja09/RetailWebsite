@@ -7,6 +7,13 @@ import com.retail.dto.ItemType;
 import com.retail.dto.Product;
 import com.retail.factory.ProductsFactory;
 
+/**
+ * Implementation of BillCalculator - If the user has been a customer for over 2
+ * years, he gets a 5% discount.
+ * 
+ * @author anuja.desale
+ *
+ */
 public class BillCalculatorForCustomersOverTwoYears implements BillCalculator{
 	@Override
 	public double calculateNetPaybleAmount(Map<Long, Integer> listOfItems) {
@@ -26,7 +33,7 @@ public class BillCalculatorForCustomersOverTwoYears implements BillCalculator{
 		int amtForflatDiscount = (int) (totalAmount/100);
 		
 		netPaybleAmt = totalAmount - (amtForflatDiscount * 5);
-		
+		System.out.println("Common Customer over 2 years Calculated Net Payble Amount : " + netPaybleAmt);
 		return netPaybleAmt;
 	}
 	

@@ -5,6 +5,13 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * The class represents the purchase order of products to be bought by the
+ * customer
+ * 
+ * @author anuja.desale
+ *
+ */
 public class Transaction {
 	String storeName;
 	String storeAddress;

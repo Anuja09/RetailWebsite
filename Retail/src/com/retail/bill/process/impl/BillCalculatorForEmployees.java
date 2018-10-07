@@ -7,6 +7,13 @@ import com.retail.dto.ItemType;
 import com.retail.dto.Product;
 import com.retail.factory.ProductsFactory;
 
+/**
+ * Implementation of BillCalculator - If the user is an employee of the store,
+ * he gets a 30% discount
+ * 
+ * @author anuja.desale
+ *
+ */
 public class BillCalculatorForEmployees implements BillCalculator{
 
 	@Override
@@ -26,6 +33,7 @@ public class BillCalculatorForEmployees implements BillCalculator{
 
 		int amtForflatDiscount = (int) (totalAmount/100);
 		netPaybleAmt = totalAmount - (amtForflatDiscount * 5);
+		System.out.println("Employees Calculated Net Payble Amount : " + netPaybleAmt);
 		return netPaybleAmt;
 	}
 	

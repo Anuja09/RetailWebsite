@@ -26,7 +26,7 @@ public class TestNetAmountPaybleToCustomer extends TestCase {
 	
 	@Test
 	public void testGenerateBillForEmployees() {
-		Customer customer = new Customer("Anuja",CustomerType.EMPLOYEE, new Date());
+		Customer customer = new Customer("Customer1",CustomerType.EMPLOYEE, new Date());
 		
 		Transaction transaction = new Transaction();
 		transaction.setBillNo("101");
@@ -39,12 +39,12 @@ public class TestNetAmountPaybleToCustomer extends TestCase {
 		listOfItemsBought.put(3001L, 3);
 		listOfItemsBought.put(3002L, 2);
 		transaction.setListOfItemsBought(listOfItemsBought);
-		assertEquals(2270.0, BillCounter.getNetPayableAmount(transaction));
+		assertEquals(2195.0, BillCounter.getNetPayableAmount(transaction));
 	}
 	
 	@Test
 	public void testGenerateBillForAffiliates() {
-		Customer customer = new Customer("Anuja",CustomerType.AFFILIATED, new Date());
+		Customer customer = new Customer("Customer2",CustomerType.AFFILIATED, new Date());
 		
 		Transaction transaction = new Transaction();
 		transaction.setBillNo("101");
@@ -58,7 +58,7 @@ public class TestNetAmountPaybleToCustomer extends TestCase {
 		listOfItemsBought.put(3002L, 1);
 		transaction.setListOfItemsBought(listOfItemsBought);
 		
-		assertEquals(1350.0, BillCounter.getNetPayableAmount(transaction));
+		assertEquals(1330.0, BillCounter.getNetPayableAmount(transaction));
 	}
 	
 	@Test
@@ -71,7 +71,7 @@ public class TestNetAmountPaybleToCustomer extends TestCase {
 			 regitrationDate = new Date();
 			e.printStackTrace();
 		}
-		Customer customer = new Customer("Anuja",CustomerType.COMMON, regitrationDate);
+		Customer customer = new Customer("Customer3",CustomerType.COMMON, regitrationDate);
 		
 		Transaction transaction = new Transaction();
 		transaction.setBillNo("101");
@@ -85,12 +85,12 @@ public class TestNetAmountPaybleToCustomer extends TestCase {
 		listOfItemsBought.put(3002L, 1);
 		transaction.setListOfItemsBought(listOfItemsBought);
 			
-		assertEquals(1415.0, BillCounter.getNetPayableAmount(transaction));
+		assertEquals(1402.5, BillCounter.getNetPayableAmount(transaction));
 	}
 	
 	@Test
 	public void testGenerateBillForCommonCustomers() {
-		Customer customer = new Customer("Anuja",CustomerType.COMMON, new Date());
+		Customer customer = new Customer("Customer4",CustomerType.COMMON, new Date());
 		
 		Transaction transaction = new Transaction();
 		transaction.setBillNo("101");
